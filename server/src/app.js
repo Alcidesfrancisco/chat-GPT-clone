@@ -1,8 +1,8 @@
 const express = require("express");
-const cors = require("cors");
+const cors = require("cors"); //porteiro da aplicação
 
-//puxar config .env config
-require("dotenv").config();
+//pegar config .env config
+require("dotenv").config(); 
 
 const app = express();
 
