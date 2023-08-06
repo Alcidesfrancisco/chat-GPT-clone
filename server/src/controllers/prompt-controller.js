@@ -1,12 +1,12 @@
-const openai = require('../src/configs/openai');
-
+const openai = require('../configs/openai');
+const inputPrompt = require('../configs/input');
 module.exports = {
     async sendText(req, res){
         const openaiAPI = openai.Configuration();
-        
+        const inputPrompt = new inputPrompt(req.body);
         try {
             const response = await openaiAPI.createCompletion(
-                openai.textCompletion("me conte uma piada")
+                openai.textCompletion(`${inputPrompt}`)
             )
             return res.status(200).json({
                 sucess: true,
